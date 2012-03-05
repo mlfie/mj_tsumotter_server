@@ -9,32 +9,11 @@ class Agari
   attr_reader :errors
 
   include ActiveModel::Validations
+  include ActiveModel::Conversion
 
-  # Required for ActiveModel
-  def to_model
-    self
-  end
-
-  # Required for ActiveModel
+  # Agari are never persisted in DB
   def persisted?
     false
-  end
-
-  # Required for ActiveModel
-  # return nil if persisted? is false
-  def to_key
-    nil
-  end
-
-  # Required for ActiveModel
-  def to_partial_path
-    'agaris'
-  end
-
-  # Required for ActiveModel
-  # return nil if persisted? is false
-  def to_param
-    nil
   end
 
   def initialize
