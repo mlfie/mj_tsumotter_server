@@ -1,0 +1,29 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mj_tsumotter_server_development
+  pool: 5
+  username: root
+  password:
+  socket: /var/lib/mysql/mysql.sock
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mj_tsumotter_server_test
+  pool: 5
+  username: root
+  password:
+  socket: /var/lib/mysql/mysql.sock
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mj_tsumotter_server_production
+  pool: 5
+  username: root
+  password:
+  socket: /var/lib/mysql/mysql.sock

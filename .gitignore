@@ -1,0 +1,9 @@
+/.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp
+/Gemfile.lock
+/coverage
+/config/database.yml
+/config/email.yml
+/config/initializers/session_store.rb
