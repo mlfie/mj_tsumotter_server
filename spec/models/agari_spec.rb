@@ -25,7 +25,7 @@ describe 'Default value of', Agari do
 
   describe '.is_tsumo' do
     it 'should be equal to false in default' do
-      @agari.is_tsumo.should == false
+      @agari.is_tsumo.should be_false
     end
   end
 
@@ -43,43 +43,43 @@ describe 'Default value of', Agari do
 
   describe '.is_ippatsu' do
     it 'should be equal to false in default' do
-      @agari.is_ippatsu.should == false
+      @agari.is_ippatsu.should be_false
     end
   end
 
   describe '.is_haitei' do
     it 'should be equal to false in default' do
-      @agari.is_haitei.should == false
+      @agari.is_haitei.should be_false
     end
   end
 
   describe '.is_rinshan' do
     it 'should be equal to false in default' do
-      @agari.is_rinshan.should == false
+      @agari.is_rinshan.should be_false
     end
   end
 
   describe '.is_chankan' do
     it 'should be equal to false in default' do
-      @agari.is_chankan.should == false
+      @agari.is_chankan.should be_false
     end
   end
 
   describe '.is_tenho' do
     it 'should be equal to false in default' do
-      @agari.is_tenho.should == false
+      @agari.is_tenho.should be_false
     end
   end
 
   describe '.is_chiho' do
     it 'should be equal to false in default' do
-      @agari.is_chiho.should == false
+      @agari.is_chiho.should be_false
     end
   end
 
   describe '.is_parent' do
     it 'should be equal to false in default' do
-      @agari.is_parent.should == false
+      @agari.is_parent.should be_false
     end
   end
 end
