@@ -8,6 +8,35 @@ class Agari
     :is_haitei, :is_tenho, :is_chiho, :is_parent
 
   validates_presence_of :img
+  validates :honba_num, :numericality => { :only_integer => true,
+                                           :greater_than_or_equal_to => 0}
+  validates :dora_num, :numericality => { :only_integer => true,
+                                           :greater_than_or_equal_to => 0}
+  validates :reach_num, :numericality => { :only_integer => true,
+                                           :greater_than_or_equal_to => 0}
+  validate :bakaze, :bakaze_should_be_ton_nan_sha_pei
+  validate :jikaze, :jikaze_should_be_ton_nan_sha_pei
+
+  validates_inclusion_of :is_tsumo, :in => [true, false]
+  validates_inclusion_of :is_ippatsu, :in => [true, false]
+  validates_inclusion_of :is_rinshan, :in => [true, false]
+  validates_inclusion_of :is_chankan, :in => [true, false]
+  validates_inclusion_of :is_haitei, :in => [true, false]
+  validates_inclusion_of :is_tenho, :in => [true, false]
+  validates_inclusion_of :is_chiho, :in => [true, false]
+  validates_inclusion_of :is_parent, :in => [true, false]
+
+  def bakaze_should_be_ton_nan_sha_pei
+    unless ['ton', 'nan', 'sha', 'pei'].any? {|kaze| kaze == bakaze}
+      errors.add(:bakaze, "should be 'ton' or 'nan' or 'sha' or 'pei'")
+    end
+  end
+
+  def jikaze_should_be_ton_nan_sha_pei
+    unless ['ton', 'nan', 'sha', 'pei'].any? {|kaze| kaze == jikaze}
+      errors.add(:jikaze, "should be 'ton' or 'nan' or 'sha' or 'pei'")
+    end
+  end
 
   def initialize(attributes = {})
     #Required for ActiveModel
@@ -27,8 +56,8 @@ class Agari
   private
   def init_attributes(attributes)
     @img = attributes[:img]
-    @bakaze = attributes[:bakaze] || :ton
-    @jikaze = attributes[:jikaze] || :ton
+    @bakaze = attributes[:bakaze] || 'ton'
+    @jikaze = attributes[:jikaze] || 'ton'
     @honba_num = attributes[:honba_num] || 0
     @is_tsumo = attributes[:is_tsumo] || false
     @dora_num = attributes[:dora_num] || 0
