@@ -1,4 +1,6 @@
 MjTsumotterServer::Application.routes.draw do
+  match 'agaris' => 'agaris#create', :via => :post
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

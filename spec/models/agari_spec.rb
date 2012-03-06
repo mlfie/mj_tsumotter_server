@@ -138,7 +138,7 @@ describe Agari do
     it 'should be serialize to json format' do
       agari = Agari.new(:img => 'hoge')
       json = ActiveSupport::JSON.decode(agari.to_json)['agari']
-      agari.serializable_hash.should == json
+      json.should == agari.serializable_hash
     end
   end
 end
