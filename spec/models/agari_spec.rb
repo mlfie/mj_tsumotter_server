@@ -132,3 +132,13 @@ describe Agari do
   it { should accept_values_for(:is_parent, true, false) }
   it { should not_accept_values_for(:is_parent, 'invalid', 1, 1.5) }
 end
+
+describe Agari do
+  describe ".to_json" do
+    it 'should be serialize to json format' do
+      agari = Agari.new(:img => 'hoge')
+      json = ActiveSupport::JSON.decode(agari.to_json)['agari']
+      agari.serializable_hash.should == json
+    end
+  end
+end

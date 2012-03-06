@@ -2,6 +2,7 @@ class Agari
   extend ActiveModel::Naming
   include ActiveModel::Validations
   include ActiveModel::Conversion
+  include ActiveModel::Serializers::JSON
 
   attr_accessor :img, :bakaze, :jikaze, :honba_num, :is_tsumo,
     :dora_num, :reach_num, :is_ippatsu, :is_rinshan, :is_chankan,
@@ -51,6 +52,24 @@ class Agari
   # Agari are never persisted in DB
   def persisted?
     false
+  end
+
+  # for json serialization
+  def attributes
+    {'bakaze' => bakaze,
+     'jikaze' => jikaze,
+     'honba_num' => honba_num,
+     'is_tsumo' => is_tsumo,
+     'dora_num' => dora_num,
+     'reach_num' => reach_num,
+     'is_ippatsu' => is_ippatsu,
+     'is_rinshan' => is_rinshan,
+     'is_chankan' => is_chankan,
+     'is_haitei' => is_haitei,
+     'is_tenho' => is_tenho,
+     'is_chiho' => is_chiho,
+     'is_parent' => is_parent
+    }
   end
 
   private
