@@ -3,7 +3,10 @@ class AgarisController < ApplicationController
   # POST /agaris.json
   def create
     agari = Agari.new(params[:agari])
-    agari.valid?
+    if agari.valid?
+      # DO analysis
+    end
+
     respond_with(agari)
   end
 end
