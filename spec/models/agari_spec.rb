@@ -134,11 +134,27 @@ describe Agari do
 end
 
 describe Agari do
+
+  before(:all) do
+    @img_dir = File.join(File.dirname(__FILE__), '../test_imgs')
+  end
+
   describe ".to_json" do
     it 'should be serialize to json format' do
       agari = Agari.new(:img => 'hoge')
       json = ActiveSupport::JSON.decode(agari.to_json)['agari']
       json.should == agari.serializable_hash
+    end
+  end
+
+  describe '.analyze' do
+    it 'should be equal to tehai' do
+      f = open("#{@img_dir}/1.jpg", 'rb')
+      img = Base64.encode64(f.read)
+      agari = Agari.new(:img => img)
+
+      agari.analyze
+      agari.tehai_list.should == 'j7tj7tj7tp1tp1tp2tp2tp3tp3tp4tp4tp4tp5tp6t'
     end
   end
 end

@@ -1,3 +1,5 @@
+require 'mjcv'
+
 class Agari
   extend ActiveModel::Naming
   include ActiveModel::Validations
@@ -6,7 +8,8 @@ class Agari
 
   attr_accessor :img, :bakaze, :jikaze, :honba_num, :is_tsumo,
     :dora_num, :reach_num, :is_ippatsu, :is_rinshan, :is_chankan,
-    :is_haitei, :is_tenho, :is_chiho, :is_parent
+    :is_haitei, :is_tenho, :is_chiho, :is_parent,
+    :tehai_list
 
   validates_presence_of :img
   validates :honba_num, :numericality => { :only_integer => true,
@@ -70,6 +73,20 @@ class Agari
      'is_chiho' => is_chiho,
      'is_parent' => is_parent
     }
+  end
+
+  def analyze
+    temp = Tempfile.new('mjt', File.join(Rails.root, 'imgtmp'))
+    begin
+      temp.binmode
+      temp.write(Base64.decode64(self.img))
+
+      analyzer = MjCV::CV::TemplateMatchingAnalyzer.new
+      self.tehai_list = analyzer.analyze(temp.path)
+    ensure
+      temp.close
+      temp.unlink
+    end
   end
 
   private
