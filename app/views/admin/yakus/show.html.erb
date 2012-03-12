@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @admin_yaku.name %>
+</p>
+
+<p>
+  <b>Han num:</b>
+  <%= @admin_yaku.han_num %>
+</p>
+
+<p>
+  <b>Naki Han num:</b>
+  <%= @admin_yaku.naki_han_num %>
+</p>
+
+<%= link_to 'Edit', edit_admin_yaku_path(@admin_yaku) %> |
+<%= link_to 'Back', admin_yakus_path %>

@@ -1,0 +1,27 @@
+<h1>Listing admin_yakus</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>HanNum</th>
+    <th>NakiHanNum</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_yakus.each do |admin_yaku| %>
+  <tr>
+    <td><%= admin_yaku.name %></td>
+    <td><%= admin_yaku.han_num %></td>
+    <td><%= admin_yaku.naki_han_num %></td>
+    <td><%= link_to 'Show', admin_yaku %></td>
+    <td><%= link_to 'Edit', edit_admin_yaku_path(admin_yaku) %></td>
+    <td><%= link_to 'Destroy', admin_yaku, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Yaku', new_admin_yaku_path %>

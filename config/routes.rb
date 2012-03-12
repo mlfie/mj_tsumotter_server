@@ -1,4 +1,6 @@
 MjTsumotterServer::Application.routes.draw do
+  namespace :admin do resources :yakus end
+
   match 'agaris' => 'agaris#create', :via => :post
 
   # The priority is based upon order of creation:
