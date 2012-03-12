@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-describe Yaku do
-  fixtures :yakus
+describe Admin::Yaku do
+  fixtures :admin_yakus
+  set_fixture_class :admin_yakus => Admin::Yaku
 
   before(:each) do
-    @yaku = yakus(:pinfu)
+    @yaku = admin_yakus(:pinfu)
   end
 
   it 'should respond to name, han_num, naki_han_num' do
