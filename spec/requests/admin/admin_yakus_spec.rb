@@ -3,6 +3,9 @@
 require 'spec_helper'
 
 describe "Admin::Yakus" do
+  fixtures :admin_yakus
+  set_fixture_class :admin_yakus => Admin::Yaku
+
   describe "GET /admin_yakus" do
     it "should be able to add new yaku" do
       visit admin_yakus_path
