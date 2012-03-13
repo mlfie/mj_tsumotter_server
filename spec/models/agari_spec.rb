@@ -169,5 +169,18 @@ describe Agari do
       agari.yaku_list.any?{|yaku| yaku.name=='chun'}.should be_true
       agari.yaku_list.any?{|yaku| yaku.name=='tsumo'}.should be_true
     end
+
+    context 'when analyzes image which causes mentsu error' do
+      it 'should have errors' do
+        f = open("#{@img_dir}/mentsu_error.jpg", 'rb')
+        img = Base64.encode64(f.read)
+        f.close
+
+        agari = Agari.new(:img => img)
+        agari.analyze
+
+        agari.errors.should have_at_least(1).items
+      end
+    end
   end
 end

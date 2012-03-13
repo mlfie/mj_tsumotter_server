@@ -114,7 +114,7 @@ class Agari
     if teyaku_decider.result_code == TeyakuDecider::RESULT_SUCCESS
       set_teyaku_result(teyaku_decider)
     else
-      #error
+      errors.add(:internal_error, "failed in analyze")
     end
   end
 
