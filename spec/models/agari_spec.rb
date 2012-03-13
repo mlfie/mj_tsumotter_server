@@ -152,6 +152,7 @@ describe Agari do
       f = open("#{@img_dir}/1.jpg", 'rb')
       img = Base64.encode64(f.read)
       agari = Agari.new(:img => img, :is_tsumo => true)
+      f.close
 
       agari.analyze
       agari.tehai_list.should == 'j7tj7tj7tp1tp1tp2tp2tp3tp3tp4tp4tp4tp5tp6t'
