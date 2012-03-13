@@ -1,15 +1,18 @@
 require 'mjcv'
+require 'mjparse'
 
 class Agari
   extend ActiveModel::Naming
   include ActiveModel::Validations
   include ActiveModel::Conversion
   include ActiveModel::Serializers::JSON
+  include Mjparse
 
   attr_accessor :img, :bakaze, :jikaze, :honba_num, :is_tsumo,
     :dora_num, :reach_num, :is_ippatsu, :is_rinshan, :is_chankan,
     :is_haitei, :is_tenho, :is_chiho, :is_parent,
-    :tehai_list
+    :tehai_list, :total_fu_num, :total_han_num, :child_point, :parent_point,
+    :ron_point, :total_point, :mangan_scale, :is_furo, :yaku_list
 
   validates_presence_of :img
   validates :honba_num, :numericality => { :only_integer => true,
@@ -76,6 +79,11 @@ class Agari
   end
 
   def analyze
+    analyze_image
+    analyze_teyaku
+  end
+
+  def analyze_image
     temp = Tempfile.new('mjt', File.join(Rails.root, 'imgtmp'))
     begin
       temp.binmode
@@ -87,6 +95,60 @@ class Agari
       temp.close
       temp.unlink
     end
+  end
+
+  def analyze_teyaku
+    teyaku_decider = TeyakuDecider.new
+    teyaku_decider.get_agari_teyaku(self.tehai_list, self.kyoku, self.yaku_specimen)
+
+    if teyaku_decider.result_code == TeyakuDecider::RESULT_SUCCESS
+      set_teyaku_result(teyaku_decider)
+    else
+      #error
+    end
+  end
+
+  def set_teyaku_result(teyaku_decider)
+    self.total_fu_num = teyaku_decider.teyaku.fu_num
+    self.total_han_num = teyaku_decider.teyaku.han_num
+    self.yaku_list = teyaku_decider.teyaku.yaku_list.map do |yaku_spec|
+      Admin::Yaku.find_by_name(yaku_spec.name)
+    end
+    self.mangan_scale = teyaku_decider.teyaku.mangan_scale
+    self.total_point = teyaku_decider.teyaku.total_point
+    self.parent_point = teyaku_decider.teyaku.parent_point
+    self.child_point = teyaku_decider.teyaku.child_point
+    self.ron_point = teyaku_decider.teyaku.ron_point
+    self.is_furo = teyaku_decider.teyaku.furo
+  end
+
+  def yaku_specimen
+    unless @yaku_specimen
+      @yaku_specimen = Hash.new
+      Admin::Yaku.all.each do |yaku|
+        @yaku_specimen[yaku.name] =
+          YakuSpecimen.new(yaku.name, nil, yaku.han_num, yaku.naki_han_num)
+      end
+    end
+    @yaku_specimen
+  end
+
+  def kyoku
+    kyoku = Kyoku.new
+    kyoku.is_tsumo = self.is_tsumo
+    kyoku.is_haitei = self.is_haitei
+    kyoku.dora_num = self.dora_num
+    kyoku.bakaze = self.bakaze
+    kyoku.jikaze = self.jikaze
+    kyoku.honba_num = self.honba_num
+    kyoku.is_rinshan = self.is_rinshan
+    kyoku.is_chankan = self.is_chankan
+    kyoku.reach_num = self.reach_num
+    kyoku.is_ippatsu = self.is_ippatsu
+    kyoku.is_tenho = self.is_tenho
+    kyoku.is_chiho = self.is_chiho
+    kyoku.is_parent = self.is_parent
+    return kyoku
   end
 
   private

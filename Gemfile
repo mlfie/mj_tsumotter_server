@@ -4,6 +4,7 @@ gem 'rails', '3.2.2'
 gem 'mysql2'
 gem 'therubyracer'
 gem 'mjcv', :git => 'git://github.com/mlfie/mjcv.git'
+gem 'mjparse', :git => 'git://github.com/mlfie/mjparse.git'
 
 
 # Gems used only for assets and not required

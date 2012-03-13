@@ -151,10 +151,23 @@ describe Agari do
     it 'should be equal to tehai' do
       f = open("#{@img_dir}/1.jpg", 'rb')
       img = Base64.encode64(f.read)
-      agari = Agari.new(:img => img)
+      agari = Agari.new(:img => img, :is_tsumo => true)
 
       agari.analyze
       agari.tehai_list.should == 'j7tj7tj7tp1tp1tp2tp2tp3tp3tp4tp4tp4tp5tp6t'
+      agari.total_fu_num.should == 30
+      agari.total_han_num.should == 6
+      agari.child_point.should == 3000
+      agari.parent_point.should == 6000
+      agari.ron_point.should == 0
+      agari.total_point.should == 12000
+      agari.mangan_scale.should == 1.5
+      agari.is_furo.should be_false
+      agari.yaku_list.should have(4).items
+      agari.yaku_list.any?{|yaku| yaku.name=='honitsu'}.should be_true
+      agari.yaku_list.any?{|yaku| yaku.name=='iipeikou'}.should be_true
+      agari.yaku_list.any?{|yaku| yaku.name=='chun'}.should be_true
+      agari.yaku_list.any?{|yaku| yaku.name=='tsumo'}.should be_true
     end
   end
 end
