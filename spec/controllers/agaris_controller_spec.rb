@@ -67,5 +67,16 @@ describe AgarisController do
         response.response_code.should == 422
       end
     end
+
+    context 'with image which causes a internal error' do
+      it 'should return "internal server error(500)"' do
+        f = open("#{@img_dir}/mentsu_error.jpg", 'rb')
+        img = Base64.encode64(f.read)
+        f.close
+
+        post :create, :agari => {:img => img}, :format => 'json'
+        response.response_code.should == 500
+      end
+    end
   end
 end

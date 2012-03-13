@@ -4,9 +4,16 @@ class AgarisController < ApplicationController
   def create
     agari = Agari.new(params[:agari])
     if agari.valid?
-      agari.analyze
+      if agari.analyze
+        respond_with(agari)
+      else
+        respond_to do |format|
+          format.json {render :text => agari.errors.to_json,
+                       :status => :internal_server_error}
+        end
+      end
+    else
+      respond_with(agari)
     end
-
-    respond_with(agari)
   end
 end
