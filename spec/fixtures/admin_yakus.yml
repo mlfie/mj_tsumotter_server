@@ -262,32 +262,26 @@ chiho:
   han_num: 13
   naki_han_num: 0
 
-dora:
-  id: 45
-  name: "dora"
-  han_num: 1
-  naki_han_num: 1
-
 bakazeton:
-  id: 46
+  id: 45
   name: "bakazeton"
   han_num: 1
   naki_han_num: 1
 
 bakazenan:
-  id: 47
+  id: 46
   name: "bakazenan"
   han_num: 1
   naki_han_num: 1
 
 bakazesha:
-  id: 48
+  id: 47
   name: "bakazesha"
   han_num: 1
   naki_han_num: 1
 
 bakazepei:
-  id: 49
+  id: 48
   name: "bakazepei"
   han_num: 1
   naki_han_num: 1
