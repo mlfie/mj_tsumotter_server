@@ -1,5 +1,293 @@
-pinfu:
+reach:
   id: 1
+  name: "reach"
+  han_num: 1
+  naki_han_num: 0
+
+ippatsu:
+  id: 2
+  name: "ippatsu"
+  han_num: 1
+  naki_han_num: 0
+
+tanyao:
+  id: 3
+  name: "tanyao"
+  han_num: 1
+  naki_han_num: 1
+
+pinfu:
+  id: 4
   name: "pinfu"
   han_num: 1
   naki_han_num: 0
+
+sanshoku:
+  id: 5
+  name: "sanshoku"
+  han_num: 2
+  naki_han_num: 1
+
+sanshokudouko:
+  id: 6
+  name: "sanshokudouko"
+  han_num: 2
+  naki_han_num: 2
+
+iipeikou:
+  id: 7
+  name: "iipeikou"
+  han_num: 1
+  naki_han_num: 0
+
+tsumo:
+  id: 8
+  name: "tsumo"
+  han_num: 1
+  naki_han_num: 0
+
+haku:
+  id: 9
+  name: "haku"
+  han_num: 1
+  naki_han_num: 1
+
+hatsu:
+  id: 10
+  name: "hatsu"
+  han_num: 1
+  naki_han_num: 1
+
+chun:
+  id: 11
+  name: "chun"
+  han_num: 1
+  naki_han_num: 1
+
+jikazeton:
+  id: 12
+  name: "jikazeton"
+  han_num: 1
+  naki_han_num: 1
+
+jikazenan:
+  id: 13
+  name: "jikazenan"
+  han_num: 1
+  naki_han_num: 1
+
+jikazesha:
+  id: 14
+  name: "jikazesha"
+  han_num: 1
+  naki_han_num: 1
+
+jikazepei:
+  id: 15
+  name: "jikazepei"
+  han_num: 1
+  naki_han_num: 1
+
+rinshan:
+  id: 16
+  name: "rinshan"
+  han_num: 1
+  naki_han_num: 1
+
+ikkitsukan:
+  id: 17
+  name: "ikkitsukan"
+  han_num: 2
+  naki_han_num: 1
+
+chanta:
+  id: 18
+  name: "chanta"
+  han_num: 2
+  naki_han_num: 1
+
+toitoihou:
+  id: 19
+  name: "toitoihou"
+  han_num: 2
+  naki_han_num: 2
+
+sanankou:
+  id: 20
+  name: "sanankou"
+  han_num: 2
+  naki_han_num: 2
+
+honroutou:
+  id: 21
+  name: "honroutou"
+  han_num: 2
+  naki_han_num: 2
+
+sankantsu:
+  id: 22
+  name: "sankantsu"
+  han_num: 2
+  naki_han_num: 2
+
+shousangen:
+  id: 23
+  name: "shousangen"
+  han_num: 2
+  naki_han_num: 2
+
+doublereach:
+  id: 24
+  name: "doublereach"
+  han_num: 2
+  naki_han_num: 0
+
+chitoitsu:
+  id: 25
+  name: "chitoitsu"
+  han_num: 2
+  naki_han_num: 2
+
+honitsu:
+  id: 26
+  name: "honitsu"
+  han_num: 3
+  naki_han_num: 2
+
+junchan:
+  id: 27
+  name: "junchan"
+  han_num: 3
+  naki_han_num: 2
+
+ryanpeikou:
+  id: 28
+  name: "ryanpeikou"
+  han_num: 3
+  naki_han_num: 0
+
+chinitsu:
+  id: 29
+  name: "chinitsu"
+  han_num: 6
+  naki_han_num: 5
+
+chankan:
+  id: 30
+  name: "chankan"
+  han_num: 1
+  naki_han_num: 1
+
+haitei:
+  id: 31
+  name: "haitei"
+  han_num: 1
+  naki_han_num: 1
+
+houtei:
+  id: 32
+  name: "houtei"
+  han_num: 1
+  naki_han_num: 1
+
+kokushi:
+  id: 33
+  name: "kokushi"
+  han_num: 13
+  naki_han_num: 0
+
+suankou:
+  id: 34
+  name: "suankou"
+  han_num: 13
+  naki_han_num: 0
+
+daisangen:
+  id: 35
+  name: "daisangen"
+  han_num: 13
+  naki_han_num: 13
+
+tsuiso:
+  id: 36
+  name: "tsuiso"
+  han_num: 13
+  naki_han_num: 13
+
+shosushi:
+  id: 37
+  name: "shosushi"
+  han_num: 13
+  naki_han_num: 13
+
+tasushi:
+  id: 38
+  name: "tasushi"
+  han_num: 13
+  naki_han_num: 13
+
+ryuiso:
+  id: 39
+  name: "ryuiso"
+  han_num: 13
+  naki_han_num: 13
+
+chinraoto:
+  id: 40
+  name: "chinraoto"
+  han_num: 13
+  naki_han_num: 13
+
+sukantsu:
+  id: 41
+  name: "sukantsu"
+  han_num: 13
+  naki_han_num: 13
+
+churen:
+  id: 42
+  name: "churen"
+  han_num: 13
+  naki_han_num: 0
+
+tenho:
+  id: 43
+  name: "tenho"
+  han_num: 13
+  naki_han_num: 0
+
+chiho:
+  id: 44
+  name: "chiho"
+  han_num: 13
+  naki_han_num: 0
+
+dora:
+  id: 45
+  name: "dora"
+  han_num: 1
+  naki_han_num: 1
+
+bakazeton:
+  id: 46
+  name: "bakazeton"
+  han_num: 1
+  naki_han_num: 1
+
+bakazenan:
+  id: 47
+  name: "bakazenan"
+  han_num: 1
+  naki_han_num: 1
+
+bakazesha:
+  id: 48
+  name: "bakazesha"
+  han_num: 1
+  naki_han_num: 1
+
+bakazepei:
+  id: 49
+  name: "bakazepei"
+  han_num: 1
+  naki_han_num: 1
