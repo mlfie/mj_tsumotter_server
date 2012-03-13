@@ -74,7 +74,17 @@ class Agari
      'is_haitei' => is_haitei,
      'is_tenho' => is_tenho,
      'is_chiho' => is_chiho,
-     'is_parent' => is_parent
+     'is_parent' => is_parent,
+     'total_fu_num' => total_fu_num,
+     'total_han_num' => total_han_num,
+     'total_point' => total_point,
+     'child_point' => child_point,
+     'parent_point' => parent_point,
+     'ron_point' => ron_point,
+     'mangan_scale' => mangan_scale,
+     'is_furo' => is_furo,
+     'tehai_list' => tehai_list,
+     'yaku_list' => yaku_list
     }
   end
 

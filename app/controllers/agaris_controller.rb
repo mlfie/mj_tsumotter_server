@@ -4,7 +4,7 @@ class AgarisController < ApplicationController
   def create
     agari = Agari.new(params[:agari])
     if agari.valid?
-      # DO analysis
+      agari.analyze
     end
 
     respond_with(agari)
